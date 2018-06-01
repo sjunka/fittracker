@@ -1,19 +1,18 @@
-import React from 'react';
+import React from "react";
 
-import { Paper, Tabs, Tab} from '@material-ui/core';
+import { Paper, Tabs, Tab } from "@material-ui/core";
 
- 
-export default props => 
-<Paper >
-        <Tabs
-        value = {0}
-          onChange={this.handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          centered
-        >
-          <Tab label="Item One" />
-          <Tab label="Item Two" />
-          <Tab label="Item Three" />
-        </Tabs>
-      </Paper>
+export default ({ muscles }) => (
+  <Paper>
+    <Tabs
+      value={0}
+      onChange={this.handleChange}
+      indicatorColor="primary"
+      textColor="primary"
+      centered
+    >
+      <Tab label="all" />
+      {muscles.map(muscle => <Tab label={muscle} />)}
+    </Tabs>
+  </Paper>
+);

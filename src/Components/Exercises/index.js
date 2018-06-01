@@ -13,7 +13,7 @@ const styles = {
 };
 
 export default props => (
-  <Grid container sm>
+  <Grid container>
     <Grid item sm>
       <LeftPanel styles={styles} />
     </Grid>
