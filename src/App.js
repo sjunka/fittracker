@@ -10,8 +10,7 @@ class App extends Component {
   };
 
   getExcersisesByMuscle = () => {
-    return;
-    Object.entries(
+    return Object.entries(
       this.state.exercises.reduce((exercises, exercise) => {
         const { muscles } = exercise;
 
@@ -25,7 +24,8 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.getExcersisesByMuscle());
+    const exercises = this.getExcersisesByMuscle();
+
     return (
       <Fragment>
         <Header />
