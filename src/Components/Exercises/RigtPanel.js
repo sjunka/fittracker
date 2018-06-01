@@ -4,7 +4,7 @@ import { Paper } from "@material-ui/core";
 
 export default ({ styles }) => (
   <Paper style={styles.Paper}>
-    Panel Izq
+    PANEL DERECHO
     <h6>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quas
       incidunt quasi aliquid adipisci ea omnis molestiae dignissimos voluptatem
