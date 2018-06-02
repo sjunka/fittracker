@@ -20,7 +20,8 @@ const onIndexSelect = (e, index) => {
       onChange = {onIndexSelect}
       indicatorColor="primary"
       textColor="primary" 
-      centered>
+      scrollable
+      scrollButtons="auto">
         <Tab label="all" />
         {muscles.map(muscle => <Tab key={muscle} label={muscle} />)}
       </Tabs>
