@@ -7,7 +7,7 @@ import { muscles, exercises } from "./store";
 class App extends Component {
   state = {
     exercises,
-    exercise:{}
+    exercise: {}
   };
 
   getExcersisesByMuscle = () => {
@@ -19,43 +19,50 @@ class App extends Component {
           ? [...exercises[muscles], exercise]
           : [exercise];
 
-        return exercises; 
+        return exercises;
       }, {})
     );
   };
 
-  handleCategorySelected = category => {
+  handleCategorySelect = category => {
     this.setState({
       category
-    } );
+    });
   };
 
+  handleExerciseSelect = id => {
+    this.setState(({ exercises }) => ({
+      exercise: exercises.find(ex => ex.id === id)
+    }));
+  };
 
-  handleExerciseSelected = id => {
-    this.setState(  ( {exercises} ) => ({
-      exercise: exercises.find( ex => ex.id === id)
-    }))
+  handleExerciseCreate = exercise => {
+     this.setState( ( { exercises } ) => ({
+           exercises: [
+             ...exercises,
+             exercise
+           ] 
+     }))
   }
-
 
   render() {
     const exercises = this.getExcersisesByMuscle(),
-      { category, exercise} = this.state;
+      { category, exercise } = this.state;
 
     return (
       <Fragment>
-        <Header />
+        <Header muscles={muscles} onExerciseCreate={this.handleExerciseCreate}/>
 
-        <Exercises 
-        exercise={exercise}
-        exercises={exercises}
-        category={category}
-        onSelect = {this.handleExerciseSelected}
-         />
+        <Exercises
+          exercise={exercise}
+          exercises={exercises}
+          category={category}
+          onSelect={this.handleExerciseSelect}
+        />
 
         <Footer
           muscles={muscles}
-          onSelect={this.handleCategorySelected}
+          onSelect={this.handleCategorySelect}
           category={category}
         />
       </Fragment>

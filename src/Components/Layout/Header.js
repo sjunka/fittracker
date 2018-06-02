@@ -6,17 +6,19 @@ import CreateDialog from '../Exercises/Dialog/Create'
 
 
 
-export default props => 
+export default ({ muscles, onExerciseCreate }) => 
 <AppBar position="static">
         <Toolbar>
-
 
           <Typography variant="title" color="inherit" style={{flex:1}} >
             Fitness Tracker
           </Typography>
 
 
-          <CreateDialog/>
+          <CreateDialog
+           muscles={muscles}
+           onCreate={onExerciseCreate}
+           />
 
 
         </Toolbar>
