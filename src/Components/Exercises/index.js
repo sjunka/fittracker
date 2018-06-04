@@ -14,8 +14,19 @@ import Delete from "@material-ui/icons/Delete";
 import Edit from "@material-ui/icons/Edit";
 
 import Form from "./Form";
+import { withStyles } from "@material-ui/core/styles";
 
-export default ({
+const styles = theme => ( {
+  Paper: {
+    padding: 20,
+    marginTop: 5,
+    height: 500,
+    overflowY: "auto"
+  }
+});
+
+export default withStyles (styles) (({
+  classes,
   muscles,
   exercises,
   category,
@@ -33,8 +44,8 @@ export default ({
   
 }) => (
   <Grid container>
-    <Grid item xs>
-      <Paper style={styles.Paper}>
+    <Grid item xs={12} sm={6}>
+      <Paper className={classes.Paper}>
         {exercises.map(
           ([muscle, exercises]) =>
             !category || category === muscle ? (
@@ -67,8 +78,8 @@ export default ({
       </Paper>
     </Grid>
 
-    <Grid item xs>
-      <Paper style={styles.Paper}>
+    <Grid item xs={12} sm={6}>
+      <Paper className={classes.Paper}>
         {editMode ? (
           <Form 
           exercise={exercise}
@@ -87,13 +98,4 @@ export default ({
       </Paper>
     </Grid>
   </Grid>
-);
-const styles = {
-  Paper: {
-    padding: 20,
-    marginTop: 10,
-    marginBottom: 10,
-    height: 500,
-    overflowY: "auto"
-  }
-};
+));
