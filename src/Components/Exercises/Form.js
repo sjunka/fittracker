@@ -29,11 +29,11 @@ export default withStyles(styles)(
       }
     }
 
-    componentWillReceiveProps ( { exercise }){
-      this.setState({
-        ...exercise
-      })
+    static getDerivedStateFromProps( {exercices}) {
+      return exercices || null
     }
+
+ 
 
     handleChange = name => ({ target: { value } }) => {
       this.setState({
